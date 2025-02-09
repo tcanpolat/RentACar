@@ -56,21 +56,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmKullaniciGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmKullaniciGiris.Designer.cs">
+      <DependentUpon>frmKullaniciGiris.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKullaniciKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKullaniciKayit.Designer.cs">
+      <DependentUpon>frmKullaniciKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502090936225_RentACarMigration.cs" />
+    <Compile Include="Migrations\202502090936225_RentACarMigration.Designer.cs">
+      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\Context\DataContext.cs" />
-    <Compile Include="ORM\Entity\Arabalar.cs" />
+    <Compile Include="ORM\Entity\Araba.cs" />
     <Compile Include="ORM\Entity\BaseEntity.cs" />
     <Compile Include="ORM\Entity\Kiralama.cs" />
-    <Compile Include="ORM\Entity\Yoneticiler.cs" />
+    <Compile Include="ORM\Entity\Yonetici.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmKullaniciGiris.resx">
+      <DependentUpon>frmKullaniciGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502090936225_RentACarMigration.resx">
+      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

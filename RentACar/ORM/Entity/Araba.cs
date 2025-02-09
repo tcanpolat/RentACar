@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RentACar.ORM.Entity
 {
-    public class Arabalar : BaseEntity
+    public class Araba : BaseEntity
     {
         [Required]
         public string Plaka { get; set; }
@@ -21,9 +21,10 @@ namespace RentACar.ORM.Entity
         public string Vites { get; set; }
         [Required]
         public string YakitTipi { get; set; }
+        public string ImageUrl { get; set; }
         [Required]
         public double Fiyat { get; set; }
 
-        public List<Yoneticiler> Yoneticilers { get; set; }
+        public List<Yonetici> Yoneticiler = new List<Yonetici>();
     }
 }

@@ -15,13 +15,20 @@ namespace RentACar.ORM.Context
             Database.Connection.ConnectionString = "Server=.;Database=RentACar;uid=sa;password=1";
         }
 
+        // Migration Steps
+        // package manager console
+        // enable-migrations
+        // add-migration migrationAdi
+        // update-database
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Arabalar> Arabalars { get; set; }
-        public DbSet<Kiralama> Kiralamas { get; set; }
-        public DbSet<Yoneticiler> Yoneticilers { get; set; }
+
+        public DbSet<Araba> Arabalar { get; set; }
+        public DbSet<Kiralama> Kiralamalar { get; set; }
+        public DbSet<Yonetici> Yoneticiler { get; set; }
     }
 }
