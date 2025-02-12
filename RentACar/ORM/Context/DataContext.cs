@@ -1,10 +1,5 @@
 ﻿using RentACar.ORM.Entity;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentACar.ORM.Context
 {
@@ -12,7 +7,7 @@ namespace RentACar.ORM.Context
     {
         public DataContext()
         {
-            Database.Connection.ConnectionString = "Server=.;Database=RentACar;uid=sa;password=1";
+            Database.Connection.ConnectionString = "Server=.\\SQLEXPRESS;Database=RentACar;uid=sa;password=1";
         }
 
         // Migration Steps
@@ -23,9 +18,13 @@ namespace RentACar.ORM.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            // Özel tablo isimlendirmesi
+            modelBuilder.Entity<Araba>().ToTable("Arabalar");
+            modelBuilder.Entity<Kiralama>().ToTable("Kiralamalar");
+            modelBuilder.Entity<Yonetici>().ToTable("Yöneticiler");
+
             base.OnModelCreating(modelBuilder);
         }
-
 
         public DbSet<Araba> Arabalar { get; set; }
         public DbSet<Kiralama> Kiralamalar { get; set; }
