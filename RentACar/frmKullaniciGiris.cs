@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,20 +32,31 @@ namespace RentACar
 
         private void btn_giris_Click(object sender, EventArgs e)
         {
+            if(!AllValidationOperations())
+            {
+                return;
+            }
+        }
+
+        public bool AllValidationOperations()
+        {
+            bool isValid = true;
             List<Yonetici> ynt = new List<Yonetici>();
             ynt = _context.Yoneticiler.Where(y => y.TC == txt_tc.Text).ToList();
-            //Eğer bu liste'nin count'u 0 gelirse listeye hiçbir şey atamamıştır. Yani veritabanında bu TC'ye ait bir kullanıcı yoktur.
-            //Bu sebeple kullanıcı bulunamadı mesajı verebiliriz.
-            //Bu işleme #guard close (koruyucu koşul) ismi veriliyor.
 
             //String değer kontrolü yaptık.
             IsNullOrWhiteSpaceControl(txt_tc.Text, "Tc Kimlik No", label_tc_error, label_tc);
             IsNullOrWhiteSpaceControl(txt_parola.Text, "Parola", label_parola_error, label_parola);
+            
+            //Eğer bu liste'nin count'u 0 gelirse listeye hiçbir şey atamamıştır. Yani veritabanında bu TC'ye ait bir kullanıcı yoktur.
+            //Bu sebeple kullanıcı bulunamadı mesajı verebiliriz.
+            //Bu işleme #guard close (koruyucu koşul) ismi veriliyor.
             if (ynt.Count == 0)
             {
                 MessageBox.Show("Böyle bir kullanıcı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                isValid = false;
             }
+
             foreach (var yonetici in ynt)
             {
                 TC = yonetici.TC.ToString();
@@ -65,14 +77,15 @@ namespace RentACar
                 else
                 {
                     MessageBox.Show("Şifreniz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    isValid = false;
                 }
             }
             else
             {
                 MessageBox.Show("TC'niz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isValid = false;
             }
-
-
+            return isValid;
         }
         //String null-whiteSpace kontrolü
         public bool IsNullOrWhiteSpaceControl(string text, string title, Label errorMessage, Label addStarToTitle)
@@ -113,3 +126,4 @@ namespace RentACar
         }
     }
 }
+
