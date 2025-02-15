@@ -47,6 +47,7 @@
             this.btn_giris.TabIndex = 0;
             this.btn_giris.Text = "Giriş";
             this.btn_giris.UseVisualStyleBackColor = false;
+            this.btn_giris.Click += new System.EventHandler(this.btn_giris_Click);
             // 
             // label1
             // 
