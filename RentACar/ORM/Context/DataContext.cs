@@ -1,10 +1,5 @@
 ﻿using RentACar.ORM.Entity;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentACar.ORM.Context
 {
@@ -15,15 +10,13 @@ namespace RentACar.ORM.Context
             Database.Connection.ConnectionString = "Server=.;Database=RentACar;uid=sa;password=1";
         }
 
-        // Migration Steps
-        // package manager console
-        // enable-migrations
-        // add-migration migrationAdi
-        // update-database
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Araba>().ToTable("Arabalar");
+            modelBuilder.Entity<Kiralama>().ToTable("Kiralamalar");
+            modelBuilder.Entity<Yonetici>().ToTable("Yoneticiler");
         }
 
 
