@@ -44,7 +44,7 @@
             this.btn_giris.Location = new System.Drawing.Point(84, 193);
             this.btn_giris.Name = "btn_giris";
             this.btn_giris.Size = new System.Drawing.Size(159, 51);
-            this.btn_giris.TabIndex = 0;
+            this.btn_giris.TabIndex = 2;
             this.btn_giris.Text = "Giriş";
             this.btn_giris.UseVisualStyleBackColor = false;
             this.btn_giris.Click += new System.EventHandler(this.btn_giris_Click);
@@ -65,7 +65,7 @@
             this.txt_tc.Location = new System.Drawing.Point(84, 86);
             this.txt_tc.Name = "txt_tc";
             this.txt_tc.Size = new System.Drawing.Size(159, 20);
-            this.txt_tc.TabIndex = 2;
+            this.txt_tc.TabIndex = 0;
             // 
             // label2
             // 
@@ -83,7 +83,7 @@
             this.txt_parola.Location = new System.Drawing.Point(84, 140);
             this.txt_parola.Name = "txt_parola";
             this.txt_parola.Size = new System.Drawing.Size(159, 20);
-            this.txt_parola.TabIndex = 2;
+            this.txt_parola.TabIndex = 1;
             this.txt_parola.UseSystemPasswordChar = true;
             // 
             // linklbl_kayitform
@@ -111,6 +111,7 @@
             this.Controls.Add(this.btn_giris);
             this.Name = "frmKullaniciGiris";
             this.Text = "Kullanıcı Giriş";
+            this.Load += new System.EventHandler(this.frmKullaniciGiris_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

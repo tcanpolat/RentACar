@@ -26,7 +26,7 @@ namespace RentACar
         private void linklbl_kayitform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmKullaniciKayit frmKullaniciKayit = new frmKullaniciKayit();
-            frmKullaniciKayit.Show();
+            frmKullaniciKayit.ShowDialog();
         }
 
         private void btn_giris_Click(object sender, EventArgs e)
@@ -45,12 +45,11 @@ namespace RentACar
             {
                 if(sifre == txt_parola.Text)
                 {
-                    MessageBox.Show("Hoşgeldiniz");
-                    this.Hide();
                     // Anasayfa formu açılacak.
                     frmYoneticiPanel frmYoneticiPanel = new frmYoneticiPanel();
                     frmYoneticiPanel.kid = id.ToString();
-                    frmYoneticiPanel.Show();
+                    this.Hide();
+                    frmYoneticiPanel.ShowDialog();
                 }
                 else
                 {
@@ -61,6 +60,13 @@ namespace RentACar
             {
                 MessageBox.Show("TC'niz hatalıdır!");
             }
+
+
+        }
+
+        private void frmKullaniciGiris_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
