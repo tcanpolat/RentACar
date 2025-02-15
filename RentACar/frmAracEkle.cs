@@ -93,7 +93,7 @@ namespace RentACar
             return string.IsNullOrWhiteSpace(text);
         }
 
-        private bool InputsValidationControl()
+        public bool InputsValidationControl()
         {
             bool isStatus = true;
 
