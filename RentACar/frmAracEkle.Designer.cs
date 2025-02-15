@@ -77,6 +77,7 @@
             this.txt_plaka.Name = "txt_plaka";
             this.txt_plaka.Size = new System.Drawing.Size(166, 21);
             this.txt_plaka.TabIndex = 1;
+            this.txt_plaka.TextChanged += new System.EventHandler(this.txt_plaka_TextChanged);
             // 
             // label_marka
             // 
@@ -97,6 +98,7 @@
             this.txt_marka.Name = "txt_marka";
             this.txt_marka.Size = new System.Drawing.Size(166, 21);
             this.txt_marka.TabIndex = 2;
+            this.txt_marka.TextChanged += new System.EventHandler(this.txt_marka_TextChanged);
             // 
             // label_model
             // 
@@ -117,6 +119,7 @@
             this.txt_model.Name = "txt_model";
             this.txt_model.Size = new System.Drawing.Size(166, 21);
             this.txt_model.TabIndex = 3;
+            this.txt_model.TextChanged += new System.EventHandler(this.txt_model_TextChanged);
             // 
             // label_aractipi
             // 
@@ -173,6 +176,7 @@
             this.txt_gunlukFiyat.Name = "txt_gunlukFiyat";
             this.txt_gunlukFiyat.Size = new System.Drawing.Size(166, 21);
             this.txt_gunlukFiyat.TabIndex = 7;
+            this.txt_gunlukFiyat.TextChanged += new System.EventHandler(this.txt_gunlukFiyat_TextChanged);
             // 
             // label_aracresmi
             // 
@@ -193,6 +197,7 @@
             this.fileName.Name = "fileName";
             this.fileName.Size = new System.Drawing.Size(158, 21);
             this.fileName.TabIndex = 8;
+            this.fileName.TextChanged += new System.EventHandler(this.fileName_TextChanged);
             // 
             // cmb_aracTipi
             // 
@@ -206,6 +211,7 @@
             this.cmb_aracTipi.Name = "cmb_aracTipi";
             this.cmb_aracTipi.Size = new System.Drawing.Size(166, 23);
             this.cmb_aracTipi.TabIndex = 4;
+            this.cmb_aracTipi.SelectedIndexChanged += new System.EventHandler(this.cmb_aracTipi_SelectedIndexChanged);
             // 
             // cmb_vitestur
             // 
@@ -219,6 +225,7 @@
             this.cmb_vitestur.Name = "cmb_vitestur";
             this.cmb_vitestur.Size = new System.Drawing.Size(166, 23);
             this.cmb_vitestur.TabIndex = 5;
+            this.cmb_vitestur.SelectedIndexChanged += new System.EventHandler(this.cmb_vitestur_SelectedIndexChanged);
             // 
             // cmb_yakitTipi
             // 
@@ -234,6 +241,7 @@
             this.cmb_yakitTipi.Name = "cmb_yakitTipi";
             this.cmb_yakitTipi.Size = new System.Drawing.Size(166, 23);
             this.cmb_yakitTipi.TabIndex = 6;
+            this.cmb_yakitTipi.SelectedIndexChanged += new System.EventHandler(this.cmb_yakitTipi_SelectedIndexChanged);
             // 
             // btn_fileDialog
             // 
