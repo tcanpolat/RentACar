@@ -33,7 +33,18 @@ namespace RentACar
         {
             List<Yonetici> ynt = new List<Yonetici>();
             ynt = _context.Yoneticiler.Where(y => y.TC == txt_tc.Text).ToList();
+            //Eğer bu liste'nin count'u 0 gelirse listeye hiçbir şey atamamıştır. Yani veritabanında bu TC'ye ait bir kullanıcı yoktur.
+            //Bu sebeple kullanıcı bulunamadı mesajı verebiliriz.
+            //Bu işleme #guard close (koruyucu koşul) ismi veriliyor.
 
+            //String değer kontrolü yaptık.
+            IsNullOrWhiteSpaceControl(txt_tc.Text, "Tc Kimlik No", label_tc_error, label_tc);
+            IsNullOrWhiteSpaceControl(txt_parola.Text, "Parola", label_parola_error, label_parola);
+            if (ynt.Count == 0)
+            {
+                MessageBox.Show("Böyle bir kullanıcı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             foreach (var yonetici in ynt)
             {
                 TC = yonetici.TC.ToString();
@@ -41,9 +52,9 @@ namespace RentACar
                 id = yonetici.ID;
             }
 
-            if(TC == txt_tc.Text)
+            if (TC == txt_tc.Text)
             {
-                if(sifre == txt_parola.Text)
+                if (sifre == txt_parola.Text)
                 {
                     // Anasayfa formu açılacak.
                     frmYoneticiPanel frmYoneticiPanel = new frmYoneticiPanel();
@@ -53,20 +64,52 @@ namespace RentACar
                 }
                 else
                 {
-                    MessageBox.Show("Şifreniz hatalıdır!");
+                    MessageBox.Show("Şifreniz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("TC'niz hatalıdır!");
+                MessageBox.Show("TC'niz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
+        }
+        //String null-whiteSpace kontrolü
+        public bool IsNullOrWhiteSpaceControl(string text, string title, Label errorMessage, Label addStarToTitle)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                errorMessage.Text = $"{title} boş olamaz!";
+                if (!addStarToTitle.Text.Contains("*"))
+                {
+                    addStarToTitle.Text += "*";
+                }
+                return true;
+            }
+            return false;
         }
 
         private void frmKullaniciGiris_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_tc_TextChanged(object sender, EventArgs e)
+        {
+            label_tc_error.Text = "";
+            if (label_tc.Text.EndsWith("*"))
+            {
+                label_tc.Text = label_tc.Text.Remove(label_tc.Text.Length - 1);
+            }
+        }
+
+        private void txt_parola_TextChanged(object sender, EventArgs e)
+        {
+            label_parola_error.Text = "";
+            if (label_parola.Text.EndsWith("*"))
+            {
+                label_parola.Text = label_parola.Text.Remove(label_parola.Text.Length - 1);
+            }
         }
     }
 }
