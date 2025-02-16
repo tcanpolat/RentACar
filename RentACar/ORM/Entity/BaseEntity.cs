@@ -9,14 +9,14 @@ namespace RentACar.ORM.Entity
 {
     public abstract class BaseEntity
     {
-        [Required]
+       //Int nun-nullable bir değer olduğu için, required gereksiz gibi.
         public int ID { get; set; }
 
         public DateTime? AddDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
 
-        [Required]
-        public bool AktifMi { get; set; }
+        //Boolean non-nullable bir değer olduğu için required gereksiz gibi, best practice olsun diye belki true belirlenebilir.
+        public bool AktifMi { get; set; } = true;
     }
 }
