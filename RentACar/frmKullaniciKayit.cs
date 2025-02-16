@@ -30,63 +30,71 @@ namespace RentACar
         }
         public bool AllValidationOperations()
         {
-            //Input validation diye oluşturduğum metot, içinde StringNullOrWhiteSpace diye oluşturduğum metotları kullanarak kontrolleri yapacak ardından çalışacak. 
-            //Eğer Input Validation false dönerse, tüm doğrulama operasyonları da false dönsün. 
-            if(!InputValidation())
+            try
             {
+                //Input validation diye oluşturduğum metot, içinde StringNullOrWhiteSpace diye oluşturduğum metotları kullanarak kontrolleri yapacak ardından çalışacak. 
+                //Eğer Input Validation false dönerse, tüm doğrulama operasyonları da false dönsün. 
+                if (!InputValidation())
+                {
+                    return false;
+                }
+
+                List<Yonetici> ynt = new List<Yonetici>();
+                ynt = _context.Yoneticiler.ToList();
+                bool kullaniciVar = false;
+
+                foreach (var yonetici in ynt)
+                {
+                    if (yonetici.TC == txt_tc.Text)
+                    {
+                        kullaniciVar = true;
+                    }
+                }
+
+                if (kullaniciVar)
+                {
+                    MessageBox.Show("Bu Tc ile daha önce kayıtlı bir yönetici mevcut!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    // ÖDEV
+                    // TC - Şifre - Telefon - EhliyetNo zorunlu alanlar olacak.
+                    // ORM => Object Relational Mapping
+                    Yonetici yonetici = new Yonetici()
+                    {
+                        Adi = txt_ad.Text,
+                        Soyadi = txt_soyad.Text,
+                        EhliyetNo = txt_ehliyetno.Text,
+                        TC = txt_tc.Text,
+                        Sifre = txt_parola.Text,
+                        Adres = txt_adres.Text,
+                        Email = txt_email.Text,
+                        Telefon = txt_telefon.Text,
+                        AktifMi = true,
+                        AddDate = DateTime.Now
+
+                    };
+
+                    _context.Yoneticiler.Add(yonetici);
+                    _context.SaveChanges();
+                    MessageBox.Show("Kayıt oluşturuldu.");
+                    this.Hide();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu! {ex.Message}","Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            List<Yonetici> ynt = new List<Yonetici>();
-            ynt = _context.Yoneticiler.ToList();
-            bool kullaniciVar = false;
-
-            foreach (var yonetici in ynt)
-            {
-                if (yonetici.TC == txt_tc.Text)
-                {
-                    kullaniciVar = true;
-                }
-            }
-
-            if (kullaniciVar)
-            {
-                MessageBox.Show("Bu Tc ile daha önce kayıtlı bir yönetici mevcut!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                // ÖDEV
-                // TC - Şifre - Telefon - EhliyetNo zorunlu alanlar olacak.
-                // ORM => Object Relational Mapping
-                Yonetici yonetici = new Yonetici()
-                {
-                    Adi = txt_ad.Text,
-                    Soyadi = txt_soyad.Text,
-                    EhliyetNo = txt_ehliyetno.Text,
-                    TC = txt_tc.Text,
-                    Sifre = txt_parola.Text,
-                    Adres = txt_adres.Text,
-                    Email = txt_email.Text,
-                    Telefon = txt_telefon.Text,
-                    AktifMi = true,
-                    AddDate = DateTime.Now
-
-                };
-
-                _context.Yoneticiler.Add(yonetici);
-                _context.SaveChanges();
-                MessageBox.Show("Kayıt oluşturuldu.");
-                this.Hide();
-            }
-            return true;
         }
         public bool StringNullOrWhiteSpaceControl(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public bool InputValidation()
         {
@@ -258,6 +266,78 @@ namespace RentACar
             }
 
             return isStatus;
+        }
+
+        private void txt_ad_TextChanged(object sender, EventArgs e)
+        {
+            label_adError.Text = "";
+            if (label_ad.Text.EndsWith("*"))
+            {
+                label_ad.Text = label_ad.Text.Remove(label_ad.Text.Length - 1);
+            }
+        }
+
+        private void txt_soyad_TextChanged(object sender, EventArgs e)
+        {
+            label_soyadError.Text = "";
+            if (label_soyad.Text.EndsWith("*"))
+            {
+                label_soyad.Text = label_soyad.Text.Remove(label_soyad.Text.Length - 1);
+            }
+        }
+
+        private void txt_ehliyetno_TextChanged(object sender, EventArgs e)
+        {
+            label_ehliyetnoError.Text = "";
+            if (label_ehliyetNo.Text.EndsWith("*"))
+            {
+                label_ehliyetNo.Text = label_ehliyetNo.Text.Remove(label_ehliyetNo.Text.Length - 1);
+            }
+        }
+
+        private void txt_telefon_TextChanged(object sender, EventArgs e)
+        {
+            label_telefonError.Text = "";
+            if (label_telefon.Text.EndsWith("*"))
+            {
+                label_telefon.Text = label_telefon.Text.Remove(label_telefon.Text.Length - 1);
+            }
+        }
+
+        private void txt_tc_TextChanged(object sender, EventArgs e)
+        {
+            label_tcError.Text = "";
+            if (label_tc.Text.EndsWith("*"))
+            {
+                label_tc.Text = label_tc.Text.Remove(label_tc.Text.Length - 1);
+            }
+        }
+
+        private void txt_parola_TextChanged(object sender, EventArgs e)
+        {
+            label_parolaError.Text = "";
+            if (label_parola.Text.EndsWith("*"))
+            {
+                label_parola.Text = label_parola.Text.Remove(label_parola.Text.Length - 1);
+            }
+        }
+
+        private void txt_email_TextChanged(object sender, EventArgs e)
+        {
+            label_emailError.Text = "";
+            if (label_email.Text.EndsWith("*"))
+            {
+                label_email.Text = label_email.Text.Remove(label_email.Text.Length - 1);
+            }
+        }
+
+        private void txt_adres_TextChanged(object sender, EventArgs e)
+        {
+            label_adresError.Text = "";
+            if (label_adres.Text.EndsWith("*"))
+            {
+                label_adres.Text = label_adres.Text.Remove(label_adres.Text.Length - 1);
+            }
         }
     }
 }

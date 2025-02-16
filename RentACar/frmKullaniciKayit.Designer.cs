@@ -72,13 +72,14 @@
             this.txt_ad.Name = "txt_ad";
             this.txt_ad.Size = new System.Drawing.Size(145, 20);
             this.txt_ad.TabIndex = 1;
+            this.txt_ad.TextChanged += new System.EventHandler(this.txt_ad_TextChanged);
             // 
             // label_soyad
             // 
             this.label_soyad.AutoSize = true;
             this.label_soyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label_soyad.ForeColor = System.Drawing.Color.IndianRed;
-            this.label_soyad.Location = new System.Drawing.Point(197, 33);
+            this.label_soyad.Location = new System.Drawing.Point(301, 33);
             this.label_soyad.Name = "label_soyad";
             this.label_soyad.Size = new System.Drawing.Size(60, 18);
             this.label_soyad.TabIndex = 0;
@@ -86,10 +87,11 @@
             // 
             // txt_soyad
             // 
-            this.txt_soyad.Location = new System.Drawing.Point(200, 54);
+            this.txt_soyad.Location = new System.Drawing.Point(304, 54);
             this.txt_soyad.Name = "txt_soyad";
             this.txt_soyad.Size = new System.Drawing.Size(145, 20);
             this.txt_soyad.TabIndex = 2;
+            this.txt_soyad.TextChanged += new System.EventHandler(this.txt_soyad_TextChanged);
             // 
             // label_ehliyetNo
             // 
@@ -108,13 +110,14 @@
             this.txt_ehliyetno.Name = "txt_ehliyetno";
             this.txt_ehliyetno.Size = new System.Drawing.Size(145, 20);
             this.txt_ehliyetno.TabIndex = 3;
+            this.txt_ehliyetno.TextChanged += new System.EventHandler(this.txt_ehliyetno_TextChanged);
             // 
             // label_telefon
             // 
             this.label_telefon.AutoSize = true;
             this.label_telefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label_telefon.ForeColor = System.Drawing.Color.IndianRed;
-            this.label_telefon.Location = new System.Drawing.Point(197, 108);
+            this.label_telefon.Location = new System.Drawing.Point(301, 108);
             this.label_telefon.Name = "label_telefon";
             this.label_telefon.Size = new System.Drawing.Size(64, 18);
             this.label_telefon.TabIndex = 0;
@@ -122,10 +125,11 @@
             // 
             // txt_telefon
             // 
-            this.txt_telefon.Location = new System.Drawing.Point(200, 129);
+            this.txt_telefon.Location = new System.Drawing.Point(304, 129);
             this.txt_telefon.Name = "txt_telefon";
             this.txt_telefon.Size = new System.Drawing.Size(145, 20);
             this.txt_telefon.TabIndex = 4;
+            this.txt_telefon.TextChanged += new System.EventHandler(this.txt_telefon_TextChanged);
             // 
             // label_tc
             // 
@@ -144,13 +148,14 @@
             this.txt_tc.Name = "txt_tc";
             this.txt_tc.Size = new System.Drawing.Size(145, 20);
             this.txt_tc.TabIndex = 5;
+            this.txt_tc.TextChanged += new System.EventHandler(this.txt_tc_TextChanged);
             // 
             // label_parola
             // 
             this.label_parola.AutoSize = true;
             this.label_parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label_parola.ForeColor = System.Drawing.Color.IndianRed;
-            this.label_parola.Location = new System.Drawing.Point(197, 185);
+            this.label_parola.Location = new System.Drawing.Point(301, 185);
             this.label_parola.Name = "label_parola";
             this.label_parola.Size = new System.Drawing.Size(62, 18);
             this.label_parola.TabIndex = 0;
@@ -158,10 +163,11 @@
             // 
             // txt_parola
             // 
-            this.txt_parola.Location = new System.Drawing.Point(200, 206);
+            this.txt_parola.Location = new System.Drawing.Point(304, 206);
             this.txt_parola.Name = "txt_parola";
             this.txt_parola.Size = new System.Drawing.Size(145, 20);
             this.txt_parola.TabIndex = 6;
+            this.txt_parola.TextChanged += new System.EventHandler(this.txt_parola_TextChanged);
             // 
             // label_email
             // 
@@ -180,6 +186,7 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(195, 20);
             this.txt_email.TabIndex = 7;
+            this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // label_adres
             // 
@@ -197,8 +204,9 @@
             this.txt_adres.Location = new System.Drawing.Point(29, 366);
             this.txt_adres.Multiline = true;
             this.txt_adres.Name = "txt_adres";
-            this.txt_adres.Size = new System.Drawing.Size(316, 98);
+            this.txt_adres.Size = new System.Drawing.Size(413, 98);
             this.txt_adres.TabIndex = 8;
+            this.txt_adres.TextChanged += new System.EventHandler(this.txt_adres_TextChanged);
             // 
             // btn_kayitOl
             // 
@@ -207,7 +215,7 @@
             this.btn_kayitOl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_kayitOl.Location = new System.Drawing.Point(29, 508);
             this.btn_kayitOl.Name = "btn_kayitOl";
-            this.btn_kayitOl.Size = new System.Drawing.Size(316, 47);
+            this.btn_kayitOl.Size = new System.Drawing.Size(413, 47);
             this.btn_kayitOl.TabIndex = 9;
             this.btn_kayitOl.Text = "Kayıt Ol";
             this.btn_kayitOl.UseVisualStyleBackColor = false;
@@ -218,7 +226,7 @@
             this.label_parolaError.AutoSize = true;
             this.label_parolaError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_parolaError.ForeColor = System.Drawing.Color.Maroon;
-            this.label_parolaError.Location = new System.Drawing.Point(197, 229);
+            this.label_parolaError.Location = new System.Drawing.Point(301, 229);
             this.label_parolaError.Name = "label_parolaError";
             this.label_parolaError.Size = new System.Drawing.Size(0, 15);
             this.label_parolaError.TabIndex = 11;
@@ -238,7 +246,7 @@
             this.label_soyadError.AutoSize = true;
             this.label_soyadError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_soyadError.ForeColor = System.Drawing.Color.Maroon;
-            this.label_soyadError.Location = new System.Drawing.Point(197, 77);
+            this.label_soyadError.Location = new System.Drawing.Point(301, 77);
             this.label_soyadError.Name = "label_soyadError";
             this.label_soyadError.Size = new System.Drawing.Size(0, 15);
             this.label_soyadError.TabIndex = 11;
@@ -288,7 +296,7 @@
             this.label_telefonError.AutoSize = true;
             this.label_telefonError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_telefonError.ForeColor = System.Drawing.Color.Maroon;
-            this.label_telefonError.Location = new System.Drawing.Point(197, 152);
+            this.label_telefonError.Location = new System.Drawing.Point(301, 152);
             this.label_telefonError.Name = "label_telefonError";
             this.label_telefonError.Size = new System.Drawing.Size(0, 15);
             this.label_telefonError.TabIndex = 11;
@@ -297,7 +305,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 576);
+            this.ClientSize = new System.Drawing.Size(532, 576);
             this.Controls.Add(this.label_soyadError);
             this.Controls.Add(this.label_adError);
             this.Controls.Add(this.label_ehliyetnoError);
