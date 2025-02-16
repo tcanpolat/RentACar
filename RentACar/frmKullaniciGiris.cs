@@ -57,6 +57,7 @@ namespace RentACar
             if (ynt.Count == 0)
             {
                 MessageBox.Show("Böyle bir kullanıcı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
             }
 
