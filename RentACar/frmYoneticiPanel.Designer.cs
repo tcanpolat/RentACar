@@ -119,6 +119,7 @@
             this.tsb_araclistesi.Name = "tsb_araclistesi";
             this.tsb_araclistesi.Size = new System.Drawing.Size(23, 30);
             this.tsb_araclistesi.Text = "Araç Listesi";
+            this.tsb_araclistesi.Click += new System.EventHandler(this.tsb_araclistesi_Click);
             this.tsb_araclistesi.MouseLeave += new System.EventHandler(this.tsb_araclistesi_MouseLeave);
             this.tsb_araclistesi.MouseHover += new System.EventHandler(this.tsb_araclistesi_MouseHover);
             // 

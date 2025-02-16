@@ -58,5 +58,12 @@ namespace RentACar
             frmAracEkle frmAracEkle = new frmAracEkle();
             frmAracEkle.Show();
         }
+
+        private void tsb_araclistesi_Click(object sender, EventArgs e)
+        {
+            frmAracListesi frmAracListesi = new frmAracListesi();
+            frmAracListesi.kid = kid;
+            frmAracListesi.Show();
+        }
     }
 }
