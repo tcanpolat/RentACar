@@ -32,29 +32,32 @@ namespace RentACar
 
         private void btn_giris_Click(object sender, EventArgs e)
         {
-            if(!AllValidationOperations())
-            {
-                return;
-            }
-        }
-
-        public bool AllValidationOperations()
-        {
-            bool isValid = true;
+            bool mistake = false;
             List<Yonetici> ynt = new List<Yonetici>();
             ynt = _context.Yoneticiler.Where(y => y.TC == txt_tc.Text).ToList();
 
             //String değer kontrolü yaptık.
-            IsNullOrWhiteSpaceControl(txt_tc.Text, "Tc Kimlik No", label_tc_error, label_tc);
-            IsNullOrWhiteSpaceControl(txt_parola.Text, "Parola", label_parola_error, label_parola);
-            
+            if (IsNullOrWhiteSpaceControl(txt_tc.Text, "Tc Kimlik No", label_tc_error, label_tc))
+            {
+                mistake = true;
+            }
+            if (IsNullOrWhiteSpaceControl(txt_parola.Text, "Parola", label_parola_error, label_parola))
+            {
+                mistake = true;
+            }
+            //Eğer mistake true gelirse yani bir hata varsa bu metodu sonlandırırız.
+            if(mistake)
+            {
+                return;
+            }
+
             //Eğer bu liste'nin count'u 0 gelirse listeye hiçbir şey atamamıştır. Yani veritabanında bu TC'ye ait bir kullanıcı yoktur.
             //Bu sebeple kullanıcı bulunamadı mesajı verebiliriz.
             //Bu işleme #guard close (koruyucu koşul) ismi veriliyor.
             if (ynt.Count == 0)
             {
                 MessageBox.Show("Böyle bir kullanıcı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                isValid = false;
+
             }
 
             foreach (var yonetici in ynt)
@@ -72,24 +75,23 @@ namespace RentACar
                     frmYoneticiPanel frmYoneticiPanel = new frmYoneticiPanel();
                     frmYoneticiPanel.kid = id.ToString();
                     this.Hide();
-                    frmYoneticiPanel.ShowDialog();
+                    frmYoneticiPanel.Show();
                 }
                 else
                 {
                     MessageBox.Show("Şifreniz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    isValid = false;
                 }
             }
             else
             {
                 MessageBox.Show("TC'niz hatalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                isValid = false;
             }
-            return isValid;
+
         }
         //String null-whiteSpace kontrolü
         public bool IsNullOrWhiteSpaceControl(string text, string title, Label errorMessage, Label addStarToTitle)
         {
+
             if (string.IsNullOrWhiteSpace(text))
             {
                 errorMessage.Text = $"{title} boş olamaz!";
@@ -101,6 +103,8 @@ namespace RentACar
             }
             return false;
         }
+
+
 
         private void frmKullaniciGiris_Load(object sender, EventArgs e)
         {
