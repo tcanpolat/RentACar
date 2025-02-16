@@ -20,7 +20,7 @@ namespace RentACar
 
         private void frmYoneticiPanel_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void tsb_kiralamalar_MouseHover(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace RentACar
         private void tsb_aracekle_Click(object sender, EventArgs e)
         {
             frmAracEkle frmAracEkle = new frmAracEkle();
-            frmAracEkle.Show();
+            frmAracEkle.ShowDialog();
         }
 
         private void tsb_araclistesi_Click(object sender, EventArgs e)
