@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -92,9 +92,9 @@
     <Compile Include="frmYoneticiPanel.Designer.cs">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202502090936225_RentACarMigration.cs" />
-    <Compile Include="Migrations\202502090936225_RentACarMigration.Designer.cs">
-      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202502191239505_migration1.cs" />
+    <Compile Include="Migrations\202502191239505_migration1.Designer.cs">
+      <DependentUpon>202502191239505_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\Context\DataContext.cs" />
@@ -122,8 +122,8 @@
     <EmbeddedResource Include="frmYoneticiPanel.resx">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502090936225_RentACarMigration.resx">
-      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202502191239505_migration1.resx">
+      <DependentUpon>202502191239505_migration1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

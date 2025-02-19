@@ -31,8 +31,18 @@ namespace RentACar
 
         private void btn_giris_Click(object sender, EventArgs e)
         {
-            List<Yonetici> ynt = new List<Yonetici>();
+            if (!StringControl())
+            { return; }
+            List<Yonetici> ynt = new List<Yonetici>(); 
+            if (ynt == null)
+            {
+                MessageBox.Show("Lütfen kayıt olunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ynt = _context.Yoneticiler.Where(y => y.TC == txt_tc.Text).ToList();
+           
+
+
 
             foreach (var yonetici in ynt)
             {
@@ -41,9 +51,9 @@ namespace RentACar
                 id = yonetici.ID;
             }
 
-            if(TC == txt_tc.Text)
+            if (TC == txt_tc.Text)
             {
-                if(sifre == txt_parola.Text)
+                if (sifre == txt_parola.Text)
                 {
                     MessageBox.Show("Hoşgeldiniz");
                     this.Hide();
@@ -61,6 +71,31 @@ namespace RentACar
             {
                 MessageBox.Show("TC'niz hatalıdır!");
             }
+        }
+        private bool StringControl()
+        {
+            if (string.IsNullOrWhiteSpace(txt_tc.Text))
+            {
+                lbl_tcError.Text = "Tc değeri boş girilemez!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txt_parola.Text))
+            {
+                lbl_parolaError.Text = "Parola değeri boş girilemez!";
+                return false;
+            }
+
+            return true;
+        }
+
+        private void txt_tc_TextChanged(object sender, EventArgs e)
+        {
+            lbl_tcError.Text = "";
+        }
+
+        private void txt_parola_TextChanged(object sender, EventArgs e)
+        {
+            lbl_parolaError.Text = "";
         }
     }
 }

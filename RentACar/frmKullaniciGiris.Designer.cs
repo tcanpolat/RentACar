@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_parola = new System.Windows.Forms.TextBox();
             this.linklbl_kayitform = new System.Windows.Forms.LinkLabel();
+            this.lbl_tcError = new System.Windows.Forms.Label();
+            this.lbl_parolaError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_giris
@@ -41,7 +43,7 @@
             this.btn_giris.BackColor = System.Drawing.Color.IndianRed;
             this.btn_giris.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_giris.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_giris.Location = new System.Drawing.Point(84, 193);
+            this.btn_giris.Location = new System.Drawing.Point(84, 211);
             this.btn_giris.Name = "btn_giris";
             this.btn_giris.Size = new System.Drawing.Size(159, 51);
             this.btn_giris.TabIndex = 0;
@@ -66,13 +68,14 @@
             this.txt_tc.Name = "txt_tc";
             this.txt_tc.Size = new System.Drawing.Size(159, 20);
             this.txt_tc.TabIndex = 2;
+            this.txt_tc.TextChanged += new System.EventHandler(this.txt_tc_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.IndianRed;
-            this.label2.Location = new System.Drawing.Point(81, 119);
+            this.label2.Location = new System.Drawing.Point(81, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 18);
             this.label2.TabIndex = 1;
@@ -80,17 +83,18 @@
             // 
             // txt_parola
             // 
-            this.txt_parola.Location = new System.Drawing.Point(84, 140);
+            this.txt_parola.Location = new System.Drawing.Point(84, 158);
             this.txt_parola.Name = "txt_parola";
             this.txt_parola.Size = new System.Drawing.Size(159, 20);
             this.txt_parola.TabIndex = 2;
             this.txt_parola.UseSystemPasswordChar = true;
+            this.txt_parola.TextChanged += new System.EventHandler(this.txt_parola_TextChanged);
             // 
             // linklbl_kayitform
             // 
             this.linklbl_kayitform.AutoSize = true;
             this.linklbl_kayitform.LinkColor = System.Drawing.Color.IndianRed;
-            this.linklbl_kayitform.Location = new System.Drawing.Point(141, 258);
+            this.linklbl_kayitform.Location = new System.Drawing.Point(141, 276);
             this.linklbl_kayitform.Name = "linklbl_kayitform";
             this.linklbl_kayitform.Size = new System.Drawing.Size(43, 13);
             this.linklbl_kayitform.TabIndex = 3;
@@ -98,11 +102,31 @@
             this.linklbl_kayitform.Text = "Kayıt Ol";
             this.linklbl_kayitform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_kayitform_LinkClicked);
             // 
+            // lbl_tcError
+            // 
+            this.lbl_tcError.AutoSize = true;
+            this.lbl_tcError.ForeColor = System.Drawing.Color.IndianRed;
+            this.lbl_tcError.Location = new System.Drawing.Point(81, 109);
+            this.lbl_tcError.Name = "lbl_tcError";
+            this.lbl_tcError.Size = new System.Drawing.Size(0, 13);
+            this.lbl_tcError.TabIndex = 4;
+            // 
+            // lbl_parolaError
+            // 
+            this.lbl_parolaError.AutoSize = true;
+            this.lbl_parolaError.ForeColor = System.Drawing.Color.IndianRed;
+            this.lbl_parolaError.Location = new System.Drawing.Point(81, 181);
+            this.lbl_parolaError.Name = "lbl_parolaError";
+            this.lbl_parolaError.Size = new System.Drawing.Size(0, 13);
+            this.lbl_parolaError.TabIndex = 4;
+            // 
             // frmKullaniciGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 340);
+            this.Controls.Add(this.lbl_parolaError);
+            this.Controls.Add(this.lbl_tcError);
             this.Controls.Add(this.linklbl_kayitform);
             this.Controls.Add(this.txt_parola);
             this.Controls.Add(this.label2);
@@ -124,6 +148,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_parola;
         private System.Windows.Forms.LinkLabel linklbl_kayitform;
+        private System.Windows.Forms.Label lbl_tcError;
+        private System.Windows.Forms.Label lbl_parolaError;
     }
 }
 
