@@ -22,6 +22,15 @@ namespace RentACar
 
         private void btn_kayitOl_Click(object sender, EventArgs e)
         {
+            if(!MandatoryAreasControl(txt_ad.Text, label_adError)) { return;}
+            if (!MandatoryAreasControl(txt_adres.Text, label_adresError)) { return; }
+            if(!MandatoryAreasControl(txt_ehliyetno.Text, label_ehliyetnoError)) { return; }
+            if(!MandatoryAreasControl(txt_email.Text, label_emailError)) { return; }
+            if(!MandatoryAreasControl(txt_parola.Text, label_parolaErrorr)) { return; }
+            if(!MandatoryAreasControl(txt_soyad.Text, label_soyadError)) { return; }
+            if(!MandatoryAreasControl(txt_tc.Text, label_tcErrorr)) { return; }
+            if(!MandatoryAreasControl(txt_telefon.Text, label_telefonError)) { return; }
+
             List<Yonetici> ynt = new List<Yonetici>();
             ynt = _context.Yoneticiler.ToList();
             bool kullaniciVar = false;
@@ -64,6 +73,45 @@ namespace RentACar
                 this.Hide();
             }
 
+        }
+        public bool MandatoryAreasControl(string text, Label label)
+        {
+            if(string.IsNullOrWhiteSpace(text))
+            {
+                label.Text = "Bu alan zorunludur!";
+                return false;
+            }
+            return true;
+        }
+
+        private void txt_ad_TextChanged(object sender, EventArgs e)
+        {
+            label_adError.Text = "";
+        }
+
+        private void txt_soyad_TextChanged(object sender, EventArgs e)
+        {
+            label_soyadError.Text = "";
+        }
+
+        private void txt_ehliyetno_TextChanged(object sender, EventArgs e)
+        {
+            label_ehliyetnoError.Text = "";
+        }
+
+        private void txt_telefon_TextChanged(object sender, EventArgs e)
+        {
+            label_telefonError.Text = "";
+        }
+
+        private void txt_email_TextChanged(object sender, EventArgs e)
+        {
+            label_emailError.Text = "";
+        }
+
+        private void txt_adres_TextChanged(object sender, EventArgs e)
+        {
+            label_adresError.Text = "";
         }
     }
 }
