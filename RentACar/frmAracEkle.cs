@@ -36,6 +36,7 @@ namespace RentACar
         private void btn_aracEkle_Click(object sender, EventArgs e)
         {
             string base64;
+           if(!NullControl()) { return; }
             // Dispose
             using (Image image = pictureBox_arac.Image.Clone() as Image)
             {
@@ -66,6 +67,50 @@ namespace RentACar
             this.Hide();
            
         }
+        public bool NullControl()
+        {
+            if (pictureBox_arac.Image == null)
+            {
+                label_resimError.Text = "Bir araç resmi yükleyiniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txt_gunlukFiyat.Text))
+            {
+                label_fiyatError.Text = "Bir fiyat değeri giriniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txt_marka.Text))
+            {
+                label_MarkaError.Text = "Bir marka değeri giriniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txt_model.Text))
+            {
+                label_modelError.Text = "Bir model değeri giriniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txt_plaka.Text))
+            {
+                label_PlakaError.Text = "Bir plaka değeri giriniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(cmb_aracTipi.Text))
+            {
+                label_AracTipiError.Text = "Bir araç tipi seçiniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(cmb_vitestur.Text))
+            {
+                label_vitesError.Text = "Bir vites türü seçiniz!";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(cmb_yakitTipi.Text))
+            {
+                label_YakıtError.Text = "Bir yakıt türü seçiniz!";
+                return false;
+            }
+            return true;
+        }
 
         private string ConvertImageToBase64(Image image)
         {
@@ -76,6 +121,46 @@ namespace RentACar
                 byte[] imageBytes = memoryStream.ToArray();
                 return Convert.ToBase64String(imageBytes);
             }
+        }
+
+        private void txt_plaka_TextChanged(object sender, EventArgs e)
+        {
+            label_PlakaError.Text = "";
+        }
+
+        private void txt_marka_TextChanged(object sender, EventArgs e)
+        {
+            label_MarkaError.Text = "";
+        }
+
+        private void txt_model_TextChanged(object sender, EventArgs e)
+        {
+            label_modelError.Text = "";
+        }
+
+        private void cmb_aracTipi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label_AracTipiError.Text = "";
+        }
+
+        private void cmb_vitestur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label_vitesError.Text = "";
+        }
+
+        private void cmb_yakitTipi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label_YakıtError.Text = "";
+        }
+
+        private void txt_gunlukFiyat_TextChanged(object sender, EventArgs e)
+        {
+            label_fiyatError.Text = "";
+        }
+
+        private void fileName_TextChanged(object sender, EventArgs e)
+        {
+            label_resimError.Text = "";
         }
     }
 }

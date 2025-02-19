@@ -47,6 +47,14 @@
             this.btn_fileDialog = new System.Windows.Forms.Button();
             this.pictureBox_arac = new System.Windows.Forms.PictureBox();
             this.btn_aracEkle = new System.Windows.Forms.Button();
+            this.label_fiyatError = new System.Windows.Forms.Label();
+            this.label_resimError = new System.Windows.Forms.Label();
+            this.label_YakıtError = new System.Windows.Forms.Label();
+            this.label_AracTipiError = new System.Windows.Forms.Label();
+            this.label_MarkaError = new System.Windows.Forms.Label();
+            this.label_PlakaError = new System.Windows.Forms.Label();
+            this.label_modelError = new System.Windows.Forms.Label();
+            this.label_vitesError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_arac)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +75,7 @@
             this.txt_plaka.Name = "txt_plaka";
             this.txt_plaka.Size = new System.Drawing.Size(143, 20);
             this.txt_plaka.TabIndex = 1;
+            this.txt_plaka.TextChanged += new System.EventHandler(this.txt_plaka_TextChanged);
             // 
             // label2
             // 
@@ -85,6 +94,7 @@
             this.txt_marka.Name = "txt_marka";
             this.txt_marka.Size = new System.Drawing.Size(143, 20);
             this.txt_marka.TabIndex = 1;
+            this.txt_marka.TextChanged += new System.EventHandler(this.txt_marka_TextChanged);
             // 
             // label3
             // 
@@ -103,6 +113,7 @@
             this.txt_model.Name = "txt_model";
             this.txt_model.Size = new System.Drawing.Size(143, 20);
             this.txt_model.TabIndex = 1;
+            this.txt_model.TextChanged += new System.EventHandler(this.txt_model_TextChanged);
             // 
             // label4
             // 
@@ -154,6 +165,7 @@
             this.txt_gunlukFiyat.Name = "txt_gunlukFiyat";
             this.txt_gunlukFiyat.Size = new System.Drawing.Size(143, 20);
             this.txt_gunlukFiyat.TabIndex = 1;
+            this.txt_gunlukFiyat.TextChanged += new System.EventHandler(this.txt_gunlukFiyat_TextChanged);
             // 
             // label8
             // 
@@ -172,6 +184,7 @@
             this.fileName.Name = "fileName";
             this.fileName.Size = new System.Drawing.Size(136, 20);
             this.fileName.TabIndex = 1;
+            this.fileName.TextChanged += new System.EventHandler(this.fileName_TextChanged);
             // 
             // cmb_aracTipi
             // 
@@ -184,6 +197,7 @@
             this.cmb_aracTipi.Name = "cmb_aracTipi";
             this.cmb_aracTipi.Size = new System.Drawing.Size(143, 21);
             this.cmb_aracTipi.TabIndex = 2;
+            this.cmb_aracTipi.SelectedIndexChanged += new System.EventHandler(this.cmb_aracTipi_SelectedIndexChanged);
             // 
             // cmb_vitestur
             // 
@@ -196,6 +210,7 @@
             this.cmb_vitestur.Name = "cmb_vitestur";
             this.cmb_vitestur.Size = new System.Drawing.Size(143, 21);
             this.cmb_vitestur.TabIndex = 2;
+            this.cmb_vitestur.SelectedIndexChanged += new System.EventHandler(this.cmb_vitestur_SelectedIndexChanged);
             // 
             // cmb_yakitTipi
             // 
@@ -210,6 +225,7 @@
             this.cmb_yakitTipi.Name = "cmb_yakitTipi";
             this.cmb_yakitTipi.Size = new System.Drawing.Size(143, 21);
             this.cmb_yakitTipi.TabIndex = 2;
+            this.cmb_yakitTipi.SelectedIndexChanged += new System.EventHandler(this.cmb_yakitTipi_SelectedIndexChanged);
             // 
             // btn_fileDialog
             // 
@@ -245,11 +261,91 @@
             this.btn_aracEkle.UseVisualStyleBackColor = false;
             this.btn_aracEkle.Click += new System.EventHandler(this.btn_aracEkle_Click);
             // 
+            // label_fiyatError
+            // 
+            this.label_fiyatError.AutoSize = true;
+            this.label_fiyatError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_fiyatError.Location = new System.Drawing.Point(346, 289);
+            this.label_fiyatError.Name = "label_fiyatError";
+            this.label_fiyatError.Size = new System.Drawing.Size(0, 13);
+            this.label_fiyatError.TabIndex = 6;
+            // 
+            // label_resimError
+            // 
+            this.label_resimError.AutoSize = true;
+            this.label_resimError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_resimError.Location = new System.Drawing.Point(532, 289);
+            this.label_resimError.Name = "label_resimError";
+            this.label_resimError.Size = new System.Drawing.Size(0, 13);
+            this.label_resimError.TabIndex = 7;
+            // 
+            // label_YakıtError
+            // 
+            this.label_YakıtError.AutoSize = true;
+            this.label_YakıtError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_YakıtError.Location = new System.Drawing.Point(532, 221);
+            this.label_YakıtError.Name = "label_YakıtError";
+            this.label_YakıtError.Size = new System.Drawing.Size(0, 13);
+            this.label_YakıtError.TabIndex = 7;
+            // 
+            // label_AracTipiError
+            // 
+            this.label_AracTipiError.AutoSize = true;
+            this.label_AracTipiError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_AracTipiError.Location = new System.Drawing.Point(532, 153);
+            this.label_AracTipiError.Name = "label_AracTipiError";
+            this.label_AracTipiError.Size = new System.Drawing.Size(0, 13);
+            this.label_AracTipiError.TabIndex = 7;
+            // 
+            // label_MarkaError
+            // 
+            this.label_MarkaError.AutoSize = true;
+            this.label_MarkaError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_MarkaError.Location = new System.Drawing.Point(532, 87);
+            this.label_MarkaError.Name = "label_MarkaError";
+            this.label_MarkaError.Size = new System.Drawing.Size(0, 13);
+            this.label_MarkaError.TabIndex = 7;
+            // 
+            // label_PlakaError
+            // 
+            this.label_PlakaError.AutoSize = true;
+            this.label_PlakaError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_PlakaError.Location = new System.Drawing.Point(346, 87);
+            this.label_PlakaError.Name = "label_PlakaError";
+            this.label_PlakaError.Size = new System.Drawing.Size(0, 13);
+            this.label_PlakaError.TabIndex = 7;
+            // 
+            // label_modelError
+            // 
+            this.label_modelError.AutoSize = true;
+            this.label_modelError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_modelError.Location = new System.Drawing.Point(346, 153);
+            this.label_modelError.Name = "label_modelError";
+            this.label_modelError.Size = new System.Drawing.Size(0, 13);
+            this.label_modelError.TabIndex = 7;
+            // 
+            // label_vitesError
+            // 
+            this.label_vitesError.AutoSize = true;
+            this.label_vitesError.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_vitesError.Location = new System.Drawing.Point(346, 221);
+            this.label_vitesError.Name = "label_vitesError";
+            this.label_vitesError.Size = new System.Drawing.Size(0, 13);
+            this.label_vitesError.TabIndex = 7;
+            // 
             // frmAracEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 415);
+            this.Controls.Add(this.label_vitesError);
+            this.Controls.Add(this.label_modelError);
+            this.Controls.Add(this.label_PlakaError);
+            this.Controls.Add(this.label_MarkaError);
+            this.Controls.Add(this.label_AracTipiError);
+            this.Controls.Add(this.label_YakıtError);
+            this.Controls.Add(this.label_resimError);
+            this.Controls.Add(this.label_fiyatError);
             this.Controls.Add(this.btn_aracEkle);
             this.Controls.Add(this.pictureBox_arac);
             this.Controls.Add(this.btn_fileDialog);
@@ -298,5 +394,13 @@
         private System.Windows.Forms.Button btn_fileDialog;
         private System.Windows.Forms.PictureBox pictureBox_arac;
         private System.Windows.Forms.Button btn_aracEkle;
+        private System.Windows.Forms.Label label_fiyatError;
+        private System.Windows.Forms.Label label_resimError;
+        private System.Windows.Forms.Label label_YakıtError;
+        private System.Windows.Forms.Label label_AracTipiError;
+        private System.Windows.Forms.Label label_MarkaError;
+        private System.Windows.Forms.Label label_PlakaError;
+        private System.Windows.Forms.Label label_modelError;
+        private System.Windows.Forms.Label label_vitesError;
     }
 }
