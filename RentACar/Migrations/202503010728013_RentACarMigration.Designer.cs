@@ -13,7 +13,7 @@ namespace RentACar.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202502090936225_RentACarMigration"; }
+            get { return "202503010728013_RentACarMigration"; }
         }
         
         string IMigrationMetadata.Source

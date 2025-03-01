@@ -36,7 +36,7 @@
                         YoneticiID = c.Int(nullable: false),
                         AlisTarihi = c.DateTime(nullable: false),
                         TeslimTarihi = c.DateTime(nullable: false),
-                        KiralamaSuresi = c.DateTime(),
+                        KiralamaSuresi = c.Int(),
                         FaturaTutari = c.Double(nullable: false),
                         AddDate = c.DateTime(),
                         UpdateDate = c.DateTime(),

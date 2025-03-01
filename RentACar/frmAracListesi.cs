@@ -38,6 +38,7 @@ namespace RentACar
             id = int.Parse(dgv_aracListesi.CurrentRow.Cells["ID"].Value.ToString());
             frmAracDetayVeKirala.id = id;
             frmAracDetayVeKirala.Show();
+            this.Hide();
         }
     }
 }

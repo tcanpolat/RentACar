@@ -16,7 +16,7 @@ namespace RentACar.ORM.Entity
 
         public DateTime AlisTarihi { get; set; }
         public DateTime TeslimTarihi { get; set; }
-        public DateTime? KiralamaSuresi { get; set; }
+        public int? KiralamaSuresi { get; set; }
         public double FaturaTutari { get; set; }
     }
 }

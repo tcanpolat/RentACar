@@ -74,6 +74,18 @@
     <Compile Include="frmAracListesi.Designer.cs">
       <DependentUpon>frmAracListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKiralamalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKiralamalar.Designer.cs">
+      <DependentUpon>frmKiralamalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKiralamaYonet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKiralamaYonet.Designer.cs">
+      <DependentUpon>frmKiralamaYonet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKullaniciGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +104,9 @@
     <Compile Include="frmYoneticiPanel.Designer.cs">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202502090936225_RentACarMigration.cs" />
-    <Compile Include="Migrations\202502090936225_RentACarMigration.Designer.cs">
-      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202503010728013_RentACarMigration.cs" />
+    <Compile Include="Migrations\202503010728013_RentACarMigration.Designer.cs">
+      <DependentUpon>202503010728013_RentACarMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\Context\DataContext.cs" />
@@ -113,6 +125,12 @@
     <EmbeddedResource Include="frmAracListesi.resx">
       <DependentUpon>frmAracListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmKiralamalar.resx">
+      <DependentUpon>frmKiralamalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKiralamaYonet.resx">
+      <DependentUpon>frmKiralamaYonet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmKullaniciGiris.resx">
       <DependentUpon>frmKullaniciGiris.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,8 +140,8 @@
     <EmbeddedResource Include="frmYoneticiPanel.resx">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502090936225_RentACarMigration.resx">
-      <DependentUpon>202502090936225_RentACarMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202503010728013_RentACarMigration.resx">
+      <DependentUpon>202503010728013_RentACarMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

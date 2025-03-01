@@ -78,6 +78,7 @@
             this.tsb_kiralamalar.Name = "tsb_kiralamalar";
             this.tsb_kiralamalar.Size = new System.Drawing.Size(30, 30);
             this.tsb_kiralamalar.Text = "Kiralamalar";
+            this.tsb_kiralamalar.Click += new System.EventHandler(this.tsb_kiralamalar_Click);
             this.tsb_kiralamalar.MouseLeave += new System.EventHandler(this.tsb_kiralamalar_MouseLeave);
             this.tsb_kiralamalar.MouseHover += new System.EventHandler(this.tsb_kiralamalar_MouseHover);
             // 

@@ -35,6 +35,8 @@ namespace RentACar
             lbl_plaka.Text = araba.Plaka;
             lbl_YakitTipi.Text = araba.YakitTipi;
             pictureBox_arac.Image = ConvertBase64ToImage(araba.ImageUrl);
+
+            dtp_alisTarihi.MinDate = DateTime.Now;
             
         }
 
@@ -51,6 +53,7 @@ namespace RentACar
         private void dtp_alisTarihi_ValueChanged(object sender, EventArgs e)
         {
             dtp_teslimTarihi.Enabled = true;
+            dtp_teslimTarihi.MinDate = dtp_alisTarihi.Value.AddDays(1);
         }
 
         private void dtp_teslimTarihi_ValueChanged(object sender, EventArgs e)
@@ -69,6 +72,43 @@ namespace RentACar
                 lbl_gunSayisi.Text = gun.ToString();
                 double faturaTutari = gun * Convert.ToDouble(lbl_gunlukFiyat.Text);
                 lbl_FaturaTutari.Text = faturaTutari.ToString();
+
+            }
+        }
+
+        private void btn_iptal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btn_kaydet_Click(object sender, EventArgs e)
+        {
+            Araba arabaKiralikMi = _context.Arabalar.Where(a => a.ID == id && a.AktifMi == false).FirstOrDefault();
+            Araba araba = _context.Arabalar.Where(a => a.ID == id).FirstOrDefault();
+
+            if (arabaKiralikMi != null)
+            {
+                MessageBox.Show("Seçtiğinz Araç Şu an kirada");
+            }
+            else
+            {
+                Kiralama kiralama = new Kiralama()
+                {
+                    ArabaID = id,
+                    YoneticiID = int.Parse(kid),
+                    AlisTarihi  = dtp_alisTarihi.Value,
+                    TeslimTarihi = dtp_teslimTarihi.Value,
+                    KiralamaSuresi = gun,
+                    FaturaTutari = Convert.ToDouble(lbl_FaturaTutari.Text),
+                    AddDate = DateTime.Now,
+                    AktifMi = true
+                };
+
+                araba.AktifMi = false;
+                _context.Kiralamalar.Add(kiralama);
+                _context.SaveChanges();
+                MessageBox.Show("Araç Kiralandı");
+                this.Hide();                
             }
         }
     }
