@@ -110,7 +110,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_giris);
             this.Name = "frmKullaniciGiris";
-            this.Text = "Kullanıcı Giriş";
+            this.Text = "Yönetici Giriş";
             this.ResumeLayout(false);
             this.PerformLayout();
 

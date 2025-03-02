@@ -228,7 +228,7 @@
             this.Controls.Add(this.txt_ad);
             this.Controls.Add(this.label1);
             this.Name = "frmKullaniciKayit";
-            this.Text = "Kullanıcı Kayıt";
+            this.Text = "Yönetici Kayıt";
             this.ResumeLayout(false);
             this.PerformLayout();
 
