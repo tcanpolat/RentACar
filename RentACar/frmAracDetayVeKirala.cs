@@ -27,6 +27,7 @@ namespace RentACar
         private void frmAracDetayVeKirala_Load(object sender, EventArgs e)
         {
             Araba araba = _context.Arabalar.Where(a => a.ID == id).First();
+            if(araba == null) { MessageBox.Show("Araba bulunamadı!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error); this.Close(); return; }
 
             lbl_aracTipi.Text = araba.AracTipi;
             lbl_gunlukFiyat.Text = araba.Fiyat.ToString();
@@ -42,12 +43,16 @@ namespace RentACar
 
         private Image ConvertBase64ToImage(string imageUrl)
         {
-            byte[] imageBytes = Convert.FromBase64String(imageUrl);
-            using (MemoryStream ms = new MemoryStream(imageBytes,0,imageBytes.Length))
+            try
             {
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                return Image.FromStream(ms,true);
+                byte[] imageBytes = Convert.FromBase64String(imageUrl);
+                using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+                {
+                    ms.Write(imageBytes, 0, imageBytes.Length);
+                    return Image.FromStream(ms, true);
+                }
             }
+            catch { return null; }
         }
 
         private void dtp_alisTarihi_ValueChanged(object sender, EventArgs e)
@@ -107,7 +112,7 @@ namespace RentACar
                 araba.AktifMi = false;
                 _context.Kiralamalar.Add(kiralama);
                 _context.SaveChanges();
-                MessageBox.Show("Araç Kiralandı");
+                MessageBox.Show("Araç Kiralandı", "Başarılı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();                
             }
         }

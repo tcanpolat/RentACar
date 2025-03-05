@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 278);
+            this.ClientSize = new System.Drawing.Size(880, 284);
             this.Controls.Add(this.dgv_kiralamalar);
             this.Name = "frmKiralamalar";
             this.Text = "Kiralamalar";
