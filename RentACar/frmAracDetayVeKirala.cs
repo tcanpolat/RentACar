@@ -93,7 +93,7 @@ namespace RentACar
 
             if (arabaKiralikMi != null)
             {
-                MessageBox.Show("Seçtiğinz Araç Şu an kirada");
+                MessageBox.Show("Seçtiğinz Araç Şu an kirada", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

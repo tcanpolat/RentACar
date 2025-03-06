@@ -26,7 +26,7 @@ namespace RentACar
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image Files(*.jpg;*.jpeg;*.png;*.gif;*.bmp) | *.jpg;*.jpeg;*.png;*.gif;*.bmp";
 
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pictureBox_arac.Image = new Bitmap(ofd.FileName);
                 fileName.Text = ofd.FileName;
@@ -42,8 +42,22 @@ namespace RentACar
                 base64 = ConvertImageToBase64(image);
             }
 
-            // Ödev.
-            // Araç ile ilgili kontroller yapılacak. Örneğin fiyatın string olmaması
+            if (pictureBox_arac.Image == null)
+            {
+                MessageBox.Show("Lütfen bir resim seçiniz!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (IsNull(txt_plaka.Text) || IsNull(txt_model.Text) || IsNull(txt_marka.Text) || IsNull(txt_gunlukFiyat.Text) || IsNull(cmb_aracTipi.Text) || IsNull(cmb_vitestur.Text) || IsNull(cmb_yakitTipi.Text))
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurunuz!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(!double.TryParse(txt_gunlukFiyat.Text, out double result))
+            {
+                MessageBox.Show("Fiyat alanı sayısal olmalıdır!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             Araba araba = new Araba()
             {
@@ -62,14 +76,22 @@ namespace RentACar
 
             _context.Arabalar.Add(araba);
             _context.SaveChanges();
-            MessageBox.Show("Araç başarıyla kaydedildi.");
+            MessageBox.Show("Araç başarıyla kaydedildi.", "Başarılı!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
-           
+
+        }
+        private bool IsNull(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return true; // nullsa true döner.
+            }
+            return false;
         }
 
         private string ConvertImageToBase64(Image image)
         {
-            // Image i base64 string e çevir
+            // Image'i base64 string'e çevir.
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 image.Save(memoryStream, image.RawFormat);

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -42,7 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -104,9 +106,9 @@
     <Compile Include="frmYoneticiPanel.Designer.cs">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202503010728013_RentACarMigration.cs" />
-    <Compile Include="Migrations\202503010728013_RentACarMigration.Designer.cs">
-      <DependentUpon>202503010728013_RentACarMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202503061724230_myMigration.cs" />
+    <Compile Include="Migrations\202503061724230_myMigration.Designer.cs">
+      <DependentUpon>202503061724230_myMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\Context\DataContext.cs" />
@@ -140,8 +142,8 @@
     <EmbeddedResource Include="frmYoneticiPanel.resx">
       <DependentUpon>frmYoneticiPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202503010728013_RentACarMigration.resx">
-      <DependentUpon>202503010728013_RentACarMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202503061724230_myMigration.resx">
+      <DependentUpon>202503061724230_myMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
