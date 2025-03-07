@@ -91,7 +91,7 @@ namespace RentACar
             Araba arabaKiralikMi = _context.Arabalar.Where(a => a.ID == id && a.AktifMi == false).FirstOrDefault();
             Araba araba = _context.Arabalar.Where(a => a.ID == id).FirstOrDefault();
 
-            if (arabaKiralikMi != null)
+            if (arabaKiralikMi != null )
             {
                 MessageBox.Show("Seçtiğinz Araç Şu an kirada", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

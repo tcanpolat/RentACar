@@ -35,9 +35,9 @@
             this.chck_kiradami = new System.Windows.Forms.CheckBox();
             this.btn_kiralama_guncelle = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_güncellenmisTarih = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label_güncellenmisFiyat = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -117,13 +117,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Güncellemek İstediğiniz Tarih";
             // 
-            // dateTimePicker1
+            // dateTimePicker_güncellenmisTarih
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(47, 260);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker_güncellenmisTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_güncellenmisTarih.Location = new System.Drawing.Point(47, 260);
+            this.dateTimePicker_güncellenmisTarih.Name = "dateTimePicker_güncellenmisTarih";
+            this.dateTimePicker_güncellenmisTarih.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_güncellenmisTarih.TabIndex = 4;
             // 
             // label4
             // 
@@ -135,15 +135,15 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Güncellenmiş Günlük Fiyat";
             // 
-            // label5
+            // label_güncellenmisFiyat
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 337);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label4";
+            this.label_güncellenmisFiyat.AutoSize = true;
+            this.label_güncellenmisFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_güncellenmisFiyat.Location = new System.Drawing.Point(44, 337);
+            this.label_güncellenmisFiyat.Name = "label_güncellenmisFiyat";
+            this.label_güncellenmisFiyat.Size = new System.Drawing.Size(57, 20);
+            this.label_güncellenmisFiyat.TabIndex = 5;
+            this.label_güncellenmisFiyat.Text = "label4";
             // 
             // panel1
             // 
@@ -172,9 +172,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 480);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label_güncellenmisFiyat);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker_güncellenmisTarih);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_kiralama_guncelle);
             this.Controls.Add(this.chck_kiradami);
@@ -201,9 +201,9 @@
         private System.Windows.Forms.CheckBox chck_kiradami;
         private System.Windows.Forms.Button btn_kiralama_guncelle;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_güncellenmisTarih;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_güncellenmisFiyat;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
     }

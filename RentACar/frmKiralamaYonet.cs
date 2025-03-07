@@ -25,6 +25,12 @@ namespace RentACar
         private void frmKiralamaYonet_Load(object sender, EventArgs e)
         {
             var kiralama = _context.Kiralamalar.Where(k => k.ID == kiralamaID).FirstOrDefault();
+            if (kiralama == null)
+            {
+                MessageBox.Show("Kiralama bulunamadı!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
             lbl_alistarihi.Text = kiralama.AlisTarihi.ToString();
             lbl_teslimtarihi.Text = kiralama.TeslimTarihi.ToString();
             chck_kiradami.Checked = kiralama.AktifMi;
@@ -35,10 +41,25 @@ namespace RentACar
         {
             Kiralama kiralama = _context.Kiralamalar.Where(k => k.ID == kiralamaID).FirstOrDefault();
             kiralama.AktifMi = chck_kiradami.Checked;
+            if(kiralama == null) { MessageBox.Show("Kiralama bulunamadı!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+
+            Araba arabalar = _context.Arabalar.FirstOrDefault(a => a.ID == kiralama.ArabaID);
+            if(arabalar == null) { MessageBox.Show("Araç bulunamadı!", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error); return;  }
+
+            if(kiralama.AktifMi == true)
+            {
+                arabalar.AktifMi = false;
+            }
+            else
+            {
+                arabalar.AktifMi=true;
+            }
             // Aracında aktif durumu değişecek.
+            kiralama.TeslimTarihi=dateTimePicker_güncellenmisTarih.Value;
+            label_güncellenmisFiyat.Text= kiralama.KiralamaSuresi.Value.ToString();
 
             _context.SaveChanges();
-            MessageBox.Show("Kira durumu güncellendi");
+            MessageBox.Show("Kira durumu güncellendi", "Başarılı İşlem!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
         }
     }
